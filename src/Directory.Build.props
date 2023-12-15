@@ -1,0 +1,36 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Major Condition=" '$(Major)' == '' ">$([System.DateTime]::Now.ToString(yyyy))</Major>
+		<Minor Condition=" '$(Minor)' == '' ">$([System.DateTime]::Now.Month)</Minor>
+		<Patch Condition=" '$(Patch)' == '' ">$([System.DateTime]::Now.Day)</Patch>
+		<Build Condition=" '$(Build)' == '' ">0</Build>
+	</PropertyGroup>
+
+
+	<PropertyGroup>
+		<Title>3rd Party</Title>
+		<Description>Command Line Interface </Description>
+		<Authors></Authors>
+		<Company></Company>
+		<Copyright>Copyright (c) $([System.DateTime]::Now.ToString(yyyy)), </Copyright>
+		
+		<VersionPrefix>$(Major).$(Minor).$(Patch).$(Build)</VersionPrefix>
+		<VersionSuffix Condition=" '$(Configuration)' == 'Debug' ">dev</VersionSuffix>
+
+		<DefaultLanguage>en-US</DefaultLanguage>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\dc-poc.snk</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+	</PropertyGroup>
+</Project>
